@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "PS",
+  "author": "SK",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
