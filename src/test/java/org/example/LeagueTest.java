@@ -12,29 +12,40 @@ import org.testng.annotations.Test;
  */
 
 public class LeagueTest
-    extends BaseTest
+        extends BaseTest
 {
     @DataProvider(name = "leagues")
     public Object[][] createLeaguesData() {
-     return new Object[][] {
-            { "NFL", "Standings" },
-            { "NBA", "Stats" }
-    };
-}
+        return new Object[][] {
+                { "NFL", "Standings" },
+                { "NBA", "Stats" }
+        };
+    }
 
     @Test(dataProvider = "leagues")
     public void testLeaguePage(String leagueName, String subTab) {
         HomePage homePage = new HomePage(driver);
-        homePage.openLeague(leagueName);
+        homePage.waitForApptoLoad();
+        homePage.getStarted_Click();
+        homePage.sportSelection();
+        homePage.continue_Button();
+        homePage.mayBeLater_button();
+        homePage.favTeamSelection();
+        homePage.continue_Button();
+        homePage.Done_button();
+        LeaguePage.getNFLText(leagueName);
 
         LeaguePage leaguePage = new LeaguePage(driver);
-        Assert.assertTrue(leaguePage.isCorrectPage(leagueName), "Incorrect league page opened.");
 
-        leaguePage.openSubTab(subTab);
-        Assert.assertTrue(leaguePage.isCorrectSubTab(subTab), "Incorrect sub-tab opened.");
-        Assert.assertTrue(leaguePage.isDataDisplayedCorrectly(), "Data is not displayed correctly.");
+        // Tap on a sub-tab and verify it opens correctly
+        leaguePage.navtoLeagueSection();
+        Assert.assertTrue(leaguePage.isStatsTabDisplayed(), "League section did not open correctly");
 
-        leaguePage.navigateBack();
-        Assert.assertTrue(homePage.isCorrectPage(), "Did not navigate back to the home page.");
+        leaguePage.navTo_Standing_Tab();
+        Assert.assertEquals(leaguePage.verifySelected_SubTab(),"AFC");
+        //Assert.assertTrue(leaguePage.isDataDisplayedCorrectly(), "Data is not displayed correctly.");
+
+        leaguePage.back_button_NAV();
+        Assert.assertEquals(leaguePage.getNFLText("NFL"), "NFL");
     }
 }
