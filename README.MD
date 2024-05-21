@@ -68,15 +68,15 @@ Step 8: Download theScore APK
 Download the theScore APK file from a trusted source and place it in a directory accessible to your project. <ADD APK File>
 
 Step 9: Running the Tests
-appium <mention the command I shared to run appium>
+appium  command,
+appium --allow-insecure chromedriver_autodownload
 
 Project Setup
 Step 1: Clone the Repository
 Clone the project repository from GitHub.
 
 bash
-git clone https://github.com/yourusername/thescore-project.git <URL>
-cd thescore-project
+git clone https://github.com/SriKunapareddi/theScore.git
 
 Step 2: Configure Maven
 Ensure the pom.xml file is properly configured
