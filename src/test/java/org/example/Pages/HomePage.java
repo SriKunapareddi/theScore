@@ -58,12 +58,10 @@ public class HomePage {
     public void sportSelection() {
         MobileElement NFLFootball = driver.findElement(By.xpath("//android.widget.TextView[@text='NFL Football']"));
         NFLFootball.click();
-        MobileElement PGATour = driver.findElement(By.xpath("//android.widget.TextView[@text='PGA Tour']"));
-        PGATour.click();
     }
 
     public void continue_Button() {
-        MobileElement continuebtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Continue']"));
+        MobileElement continuebtn = driver.findElement(By.xpath("//*[@resource-id='com.fivemobile.thescore:id/btn_primary']"));
         continuebtn.click();
     }
 
@@ -73,17 +71,20 @@ public class HomePage {
     }
 
     public void favTeamSelection() {
-        MobileElement muTeam = driver.findElement(By.xpath("//android.widget.TextView[@text='Manchester United']"));
-        muTeam.click();
-        MobileElement gswTeam = driver
-                .findElement(By.xpath("//android.widget.TextView[@text='Golden State Warriors']"));
-        gswTeam.click();
+        MobileElement tmlTeam = driver.findElement(By.xpath("//android.widget.TextView[@text='Toronto Maple Leafs']"));
+        tmlTeam.click();
+
     }
 
     public void Done_button() {
-        MobileElement donebtn = driver.findElement(By.xpath(" //android.widget.TextView[@text='Done']"));
+        MobileElement donebtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Done']"));
         donebtn.click();
     }
+
+    public void Close_button() {
+        MobileElement closebtn = driver.findElement(By.xpath("//*[@resource-id='com.fivemobile.thescore:id/dismiss_modal']"));
+        closebtn.click();
+        }
 
 }
 

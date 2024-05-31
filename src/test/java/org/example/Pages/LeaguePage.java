@@ -31,9 +31,9 @@ public class LeaguePage {
     }
 
 
-    public boolean isStatsTabDisplayed() {
-        // Add appropriate locator to check if stats tab is displayed
-        return driver.findElement(By.id("statsTabElementId")).isDisplayed();
+    public boolean isStandingsTabDisplayed() {
+
+        return driver.findElement(By.xpath("//*[@text='STANDINGS']")).isDisplayed();
     }
 
     public void navigateBack() {
@@ -58,7 +58,8 @@ public class LeaguePage {
     }
 
     public static String getNFLText(String leagueName) {
-        MobileElement nflText = driver.findElement(By.xpath("//android.widget.TextView[@text='"+leagueName+"']"));
+        System.out.println(leagueName);
+        MobileElement nflText = driver.findElement(By.xpath("//android.widget.TextView[@text='NFL']"));
         return nflText.getText();
     }
 

@@ -32,14 +32,17 @@ public class LeagueTest
         homePage.mayBeLater_button();
         homePage.favTeamSelection();
         homePage.continue_Button();
-        homePage.Done_button();
+        homePage.continue_Button();
+        homePage.mayBeLater_button();
+        homePage.Close_button();
+        System.out.println(leagueName);
         LeaguePage.getNFLText(leagueName);
 
         LeaguePage leaguePage = new LeaguePage(driver);
 
         // Tap on a sub-tab and verify it opens correctly
         leaguePage.navtoLeagueSection();
-        Assert.assertTrue(leaguePage.isStatsTabDisplayed(), "League section did not open correctly");
+        Assert.assertTrue(leaguePage.isStandingsTabDisplayed(), "League section did not open correctly");
 
         leaguePage.navTo_Standing_Tab();
         Assert.assertEquals(leaguePage.verifySelected_SubTab(),"AFC");
