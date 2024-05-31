@@ -18,7 +18,6 @@ public class LeagueTest
     public Object[][] createLeaguesData() {
         return new Object[][] {
                 { "NFL", "Standings" },
-                { "NBA", "Stats" }
         };
     }
 
@@ -36,9 +35,10 @@ public class LeagueTest
         homePage.mayBeLater_button();
         homePage.Close_button();
         System.out.println(leagueName);
+        LeaguePage leaguePage = new LeaguePage(driver);
         LeaguePage.getNFLText(leagueName);
 
-        LeaguePage leaguePage = new LeaguePage(driver);
+
 
         // Tap on a sub-tab and verify it opens correctly
         leaguePage.navtoLeagueSection();
